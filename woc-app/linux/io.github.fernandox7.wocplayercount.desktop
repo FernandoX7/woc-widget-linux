@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=WoC Player Count
+Comment=Follow World of ClaudeCraft player activity and the $WOC market
+Exec=woc-widget
+Icon=io.github.fernandox7.wocplayercount
+Terminal=false
+Categories=Network;Monitor;
+StartupNotify=true
+X-GNOME-UsesNotifications=true

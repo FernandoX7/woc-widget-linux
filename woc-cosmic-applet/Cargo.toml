@@ -1,0 +1,18 @@
+[package]
+name = "woc-cosmic-applet"
+description = "Native COSMIC panel applet for WoC Player Count"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+libcosmic = { git = "https://github.com/pop-os/libcosmic.git", rev = "6359a9465b8fe4c3b0ada0cd2b87cddf644ca732", features = ["applet", "applet-token", "tokio", "wayland", "winit"] }
+calloop = "0.14.4"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1.52.3", features = ["fs", "time"] }
+wockit = { path = "../wockit" }
+
+[dev-dependencies]
+woc-app = { path = "../woc-app" }

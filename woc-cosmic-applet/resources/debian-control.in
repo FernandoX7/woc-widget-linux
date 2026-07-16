@@ -1,0 +1,10 @@
+Package: woc-widget-cosmic-applet
+Version: @VERSION@
+Architecture: @ARCH@
+Maintainer: Fernando Ramirez
+Section: utils
+Priority: optional
+Depends: io-github-fernandox7-wocplayercount (= @VERSION@)
+Description: Native COSMIC panel applet for WoC Player Count
+ Displays the configured live WoC label in the COSMIC panel and opens or
+ focuses the main WoC Player Count application when pressed.

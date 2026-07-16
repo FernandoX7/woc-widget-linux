@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "io.github.fernandox7.wocplayercount",
+  "version": "0.1.0",
+  "identifier": "io.github.fernandox7.wocplayercount",
+  "mainBinaryName": "woc-widget",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "ui/dist"
+  },
+  "app": {
+    "windows": [],
+    "security": {
+      "csp": "default-src 'self'; connect-src ipc: http://ipc.localhost; img-src 'self' data:; style-src 'self' 'unsafe-inline'; base-uri 'self'; object-src 'none'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["deb", "appimage"],
+    "publisher": "Fernando Ramirez",
+    "homepage": "https://github.com/FernandoX7/woc-widget-linux",
+    "category": "Utility",
+    "shortDescription": "World of ClaudeCraft player count and $WOC market dashboard",
+    "longDescription": "Shows live World of ClaudeCraft player activity and $WOC market data in the system tray, with a local dashboard for history, community status, alerts, and settings.",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.png"
+    ],
+    "linux": {
+      "deb": {
+        "section": "utils",
+        "priority": "optional",
+        "desktopTemplate": "linux/tauri-generated.desktop",
+        "files": {
+          "/usr/share/applications/io.github.fernandox7.wocplayercount.desktop": "linux/io.github.fernandox7.wocplayercount.desktop",
+          "/usr/share/metainfo/io.github.fernandox7.wocplayercount.metainfo.xml": "linux/io.github.fernandox7.wocplayercount.metainfo.xml",
+          "/usr/share/icons/hicolor": "linux/icons/hicolor"
+        }
+      },
+      "appimage": {
+        "bundleMediaFramework": false,
+        "files": {
+          "/usr/share/applications/io.github.fernandox7.wocplayercount.desktop": "linux/io.github.fernandox7.wocplayercount.desktop",
+          "/usr/share/metainfo/io.github.fernandox7.wocplayercount.metainfo.xml": "linux/io.github.fernandox7.wocplayercount.metainfo.xml",
+          "/usr/share/icons/hicolor": "linux/icons/hicolor"
+        }
+      }
+    }
+  }
+}

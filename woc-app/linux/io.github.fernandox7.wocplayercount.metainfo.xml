@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.fernandox7.wocplayercount</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>WoC Player Count</name>
+  <summary>World of ClaudeCraft status and $WOC market dashboard</summary>
+  <description>
+    <p>
+      WoC Player Count shows the live World of ClaudeCraft player count and $WOC token
+      price in the system tray, with a dashboard for history, market, community, alerts,
+      and settings.
+    </p>
+    <p>
+      History and preferences remain local. The application contains no telemetry.
+    </p>
+  </description>
+  <launchable type="desktop-id">io.github.fernandox7.wocplayercount.desktop</launchable>
+  <url type="homepage">https://github.com/FernandoX7/woc-widget</url>
+  <developer id="io.github.fernandox7">
+    <name>Fernando Ramirez</name>
+  </developer>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="0.1.0" date="2026-07-15">
+      <description>
+        <p>Initial Linux package.</p>
+      </description>
+    </release>
+  </releases>
+</component>

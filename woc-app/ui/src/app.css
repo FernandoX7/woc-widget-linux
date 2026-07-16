@@ -1,0 +1,364 @@
+:root {
+  color-scheme: dark;
+
+  /* Palette.swift */
+  --color-card: rgb(255 255 255 / 5%);
+  --color-card-stroke: rgb(255 255 255 / 8%);
+  --color-gold: rgb(94% 76% 40%);
+  --color-green: rgb(33% 86% 49%);
+  --color-red: rgb(96% 42% 42%);
+  --color-cyan: rgb(20% 90% 95%);
+  --color-violet: rgb(60% 30% 95%);
+  --color-text-primary: rgb(255 255 255 / 97%);
+  --color-text-secondary: rgb(255 255 255 / 68%);
+  --color-text-tertiary: rgb(255 255 255 / 50%);
+  --color-on-accent: #fff;
+  --color-chart-grid: rgb(255 255 255 / 13%);
+  --color-chart-annotation-bg: rgb(13% 14% 21%);
+  --color-popover-bg-top: rgb(5% 5% 15%);
+  --color-popover-bg-bottom: rgb(10% 0% 15%);
+  --color-card-opaque: rgb(14% 11% 22%);
+  --color-pill-opaque: rgb(18% 15% 26%);
+  --color-card-stroke-strong: rgb(255 255 255 / 30%);
+  --color-glass-fill: rgb(255 255 255 / 8%);
+  --color-switcher-selection: rgb(255 255 255 / 13%);
+  --color-gold-25: rgb(94% 76% 40% / 25%);
+  --color-red-25: rgb(96% 42% 42% / 25%);
+  --color-cyan-30: rgb(20% 90% 95% / 30%);
+  --color-cyan-40: rgb(20% 90% 95% / 40%);
+
+  /* Semantic status colors. */
+  --color-status-live: var(--color-cyan);
+  --color-status-sync: var(--color-gold);
+  --color-status-offline: var(--color-red);
+  --color-status-cached: var(--color-gold);
+
+  /* Gradients.swift */
+  --gradient-brand-horizontal: linear-gradient(90deg, var(--color-cyan), var(--color-violet));
+  --gradient-brand-diagonal: linear-gradient(135deg, var(--color-cyan), var(--color-violet));
+  --gradient-chart-area: linear-gradient(180deg, rgb(20% 90% 95% / 34%), rgb(60% 30% 95% / 2%));
+  --gradient-done-stroke: linear-gradient(90deg, rgb(20% 90% 95% / 55%), rgb(60% 30% 95% / 55%));
+  --gradient-popover-bg: linear-gradient(180deg, var(--color-popover-bg-top), var(--color-popover-bg-bottom));
+  --gradient-popover-stroke: linear-gradient(135deg, rgb(255 255 255 / 20%), transparent);
+
+  /* SF Rounded's closest cross-platform stack. */
+  --font-rounded: ui-rounded, "SF Pro Rounded", "SF Pro Display", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-system: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono-digits: "SF Mono", "Roboto Mono", ui-monospace, monospace;
+
+  /* Typography.swift: sizes and maximum Dynamic Type scale caps. */
+  --type-dot: 8px;
+  --type-stat-label: 10px;
+  --type-picker-row-label: 10px;
+  --type-axis: 10px;
+  --type-annotation-time: 10px;
+  --type-crypto-change: 10px;
+  --type-placeholder-hint: 10px;
+  --type-section-label: 10px;
+  --type-badge-label: 10px;
+  --type-timestamp: 10.5px;
+  --type-candle-axis: 10.5px;
+  --type-pill: 11px;
+  --type-candle-price-tag: 11px;
+  --type-title-heavy: 11px;
+  --type-body-rounded: 11px;
+  --type-refresh-icon: 11px;
+  --type-icon-medium: 12px;
+  --type-chevron: 12px;
+  --type-button-label: 12px;
+  --type-threshold-value: 12px;
+  --type-row-label: 12.5px;
+  --type-emphasis: 13px;
+  --type-online: 13px;
+  --type-stat-value: 15px;
+  --type-placeholder-icon: 17px;
+  --type-market-price: 24px;
+  --type-count: 46px;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-heavy: 900;
+  --weight-stat-label: var(--weight-semibold);
+  --weight-picker-row-label: var(--weight-heavy);
+  --weight-axis: var(--weight-regular);
+  --weight-annotation-time: var(--weight-medium);
+  --weight-crypto-change: var(--weight-bold);
+  --weight-placeholder-hint: var(--weight-regular);
+  --weight-section-label: var(--weight-bold);
+  --weight-badge-label: var(--weight-heavy);
+  --weight-timestamp: var(--weight-medium);
+  --weight-candle-axis: var(--weight-semibold);
+  --weight-pill: var(--weight-medium);
+  --weight-candle-price-tag: var(--weight-bold);
+  --weight-title-heavy: var(--weight-heavy);
+  --weight-body-rounded: var(--weight-regular);
+  --weight-refresh-icon: var(--weight-bold);
+  --weight-icon-medium: var(--weight-semibold);
+  --weight-chevron: var(--weight-bold);
+  --weight-button-label: var(--weight-semibold);
+  --weight-threshold-value: var(--weight-bold);
+  --weight-row-label: var(--weight-medium);
+  --weight-emphasis: var(--weight-bold);
+  --weight-online: var(--weight-medium);
+  --weight-stat-value: var(--weight-bold);
+  --weight-market-price: var(--weight-bold);
+  --weight-count: var(--weight-bold);
+  --type-max-stat-label: 1.9;
+  --type-max-picker-row-label: 1.75;
+  --type-max-axis: 1.7;
+  --type-max-annotation-time: 1.8;
+  --type-max-crypto-change: 1.9;
+  --type-max-placeholder-hint: 2;
+  --type-max-section-label: 1.9;
+  --type-max-badge-label: 1.9;
+  --type-max-timestamp: 2;
+  --type-max-candle-axis: 1.7;
+  --type-max-pill: 1.9;
+  --type-max-candle-price-tag: 1.7;
+  --type-max-title-heavy: 1.8;
+  --type-max-body-rounded: 2.15;
+  --type-max-button-label: 1.9;
+  --type-max-threshold-value: 1.9;
+  --type-max-row-label: 2;
+  --type-max-emphasis: 1.9;
+  --type-max-online: 1.9;
+  --type-max-stat-value: 1.75;
+  --type-max-market-price: 1.55;
+  --type-max-count: 1.45;
+
+  /* Layout.swift */
+  --space-0: 0px;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-5: 5px;
+  --space-6: 6px;
+  --space-7: 7px;
+  --space-8: 8px;
+  --space-9: 9px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --radius-7: 7px;
+  --radius-8: 8px;
+  --radius-14: 14px;
+  --line-075: 0.75px;
+  --line-1: 1px;
+  --line-2: 2px;
+  --line-6: 6px;
+  --tracking-06: 0.6px;
+  --tracking-08: 0.8px;
+  --tracking-16: 1.6px;
+  --tracking-18: 1.8px;
+  --opacity-02: 0.02;
+  --opacity-04: 0.04;
+  --opacity-08: 0.08;
+  --opacity-12: 0.12;
+  --opacity-13: 0.13;
+  --opacity-15: 0.15;
+  --opacity-20: 0.2;
+  --opacity-25: 0.25;
+  --opacity-30: 0.3;
+  --opacity-34: 0.34;
+  --opacity-35: 0.35;
+  --opacity-40: 0.4;
+  --opacity-45: 0.45;
+  --opacity-55: 0.55;
+  --opacity-80: 0.8;
+  --opacity-85: 0.85;
+  --opacity-90: 0.9;
+  --opacity-92: 0.92;
+  --shadow-dot-radius: 3.5px;
+  --shadow-badge-dot-radius: 4px;
+  --shadow-annotation-radius: 5px;
+  --shadow-annotation-offset-y: 2px;
+  --popover-width: 440px;
+  --popover-height: 660px;
+  --chart-height: 104px;
+  --divider-width: 1px;
+  --divider-height: 22px;
+  --picker-label-width: 48px;
+  --picker-label-width-accessible: 72px;
+  --progress-side: 12px;
+  --progress-scale: 0.7;
+  --icon-button-side: 28px;
+  --leaderboard-rank-width: 22px;
+  --settings-control-width: 104px;
+  --online-baseline-offset: -4px;
+  --blur-glow: 6px;
+  --motion-hover: 150ms ease-out;
+  --motion-settings: 300ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  --motion-count: 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  --motion-spinner: 700ms;
+
+  /* Linux chrome geometry approximations. */
+  --pill-radius: 9999px;
+  --glass-blur: 14px;
+  --glass-saturation: 125%;
+  --switcher-inset: 3px;
+  --placeholder-padding: 24px;
+  --realm-label-max-width: 150px;
+  --count-tracking: -2px;
+  --wifi-width: 9px;
+  --wifi-height: 8px;
+  --wifi-line-width: 1.5px;
+  --wifi-dot-side: 3px;
+  --wifi-dot-offset-x: 3px;
+  --footer-min-height: 52px;
+  --disabled-opacity: 0.75;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+html {
+  background: var(--color-popover-bg-bottom);
+}
+
+body {
+  min-width: var(--popover-width);
+  min-height: var(--popover-height);
+  overflow: hidden;
+  background: var(--gradient-popover-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-rounded);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  user-select: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.glass-card {
+  border: var(--line-1) solid var(--color-card-stroke);
+  border-radius: var(--radius-14);
+  background: var(--color-card);
+}
+
+.glass-pill {
+  border: var(--line-1) solid var(--glass-pill-stroke, var(--color-card-stroke));
+  border-radius: var(--pill-radius);
+  background: var(--color-glass-fill);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+}
+
+.glass-button {
+  border: 0;
+  background: var(--color-glass-fill);
+  cursor: default;
+  transition: background-color var(--motion-hover);
+}
+
+.glass-button:hover,
+.glass-button:active {
+  background-color: rgb(255 255 255 / calc(var(--opacity-15) * 100%));
+}
+
+.brand-text {
+  background: var(--gradient-brand-horizontal);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.status-live { --status-color: var(--color-status-live); }
+.status-sync { --status-color: var(--color-status-sync); }
+.status-offline { --status-color: var(--color-status-offline); }
+.status-cached { --status-color: var(--color-status-cached); }
+
+.status-dot {
+  width: var(--type-dot);
+  height: var(--type-dot);
+  border-radius: 50%;
+  background: var(--status-color, var(--color-status-live));
+  box-shadow: 0 0 var(--shadow-dot-radius) color-mix(in srgb, var(--status-color, var(--color-status-live)) 85%, transparent);
+}
+
+.status-live .status-dot,
+.status-dot.status-live {
+  background: var(--gradient-brand-diagonal);
+}
+
+.status-dot.is-pulsing {
+  animation: status-pulse 1.8s ease-in-out infinite;
+}
+
+.digit-roll {
+  animation: digit-roll var(--motion-count);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Screenshot fixtures capture a settled frame, matching Swift preview composition. */
+[data-fixture="true"] .digit-roll,
+[data-fixture="true"] .status-dot.is-pulsing {
+  animation: none;
+}
+
+@keyframes digit-roll {
+  from { opacity: 0; transform: translateY(0.22em); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(0.82); }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --color-text-secondary: rgb(255 255 255 / 90%);
+    --color-text-tertiary: rgb(255 255 255 / 78%);
+    --color-chart-grid: rgb(255 255 255 / 34%);
+    --color-card-stroke: var(--color-card-stroke-strong);
+  }
+
+  .glass-pill {
+    border-width: var(--line-2);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass-card {
+    background: var(--color-card-opaque);
+  }
+
+  .glass-pill {
+    background: var(--color-pill-opaque);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-button {
+    transition: none;
+  }
+
+  .digit-roll,
+  .status-dot.is-pulsing {
+    animation: none;
+  }
+}

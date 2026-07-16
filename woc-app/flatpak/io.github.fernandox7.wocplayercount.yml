@@ -1,0 +1,122 @@
+app-id: io.github.fernandox7.wocplayercount
+runtime: org.freedesktop.Platform
+runtime-version: '25.08'
+sdk: org.freedesktop.Sdk
+command: woc-widget
+
+# This is deliberately a local-build manifest. Build target/release/woc-widget on the
+# host first; a future Flathub manifest must instead declare all Cargo and npm sources.
+finish-args:
+  - --share=ipc
+  - --share=network
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --device=dri
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --talk-name=org.freedesktop.Notifications
+
+cleanup:
+  - /bin/bundle
+  - /bin/bundler
+  - /bin/erb
+  - /bin/gem
+  - /bin/irb
+  - /bin/racc
+  - /bin/rake
+  - /bin/rdbg
+  - /bin/rdoc
+  - /bin/ruby*
+  - /bin/WebKitWebDriver
+  - /bin/unifdef*
+  - /include
+  - /lib/cmake
+  - /lib/debug
+  - /lib/libruby-static.a
+  - /lib/pkgconfig
+  - /lib/ruby
+  - /share/doc
+  - /share/gtk-doc
+  - /share/man
+
+modules:
+  # WebKitGTK's source generators require Ruby, which is not shipped in the
+  # Freedesktop 25.08 SDK. It is build-only and removed by cleanup.
+  - name: ruby
+    config-opts:
+      - --disable-install-doc
+    sources:
+      - type: archive
+        url: https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.9.tar.xz
+        sha256: 4231c54072601a171faed1699f105985e9971c94cd382b78feb4eb44eec2dd1a
+
+  - name: unifdef
+    buildsystem: simple
+    build-commands:
+      - make CFLAGS="-O2 -std=gnu17"
+      - make install prefix=/app
+    sources:
+      - type: archive
+        url: https://dotat.at/prog/unifdef/unifdef-2.12.tar.xz
+        sha256: 43ce0f02ecdcdc723b2475575563ddb192e988c886d368260bc0a63aee3ac400
+
+  # Tauri v2 links WebKitGTK 4.1. The Freedesktop runtime intentionally does not
+  # ship it, so the local Flatpak builds the stable GTK port into /app.
+  - name: webkitgtk
+    buildsystem: cmake-ninja
+    build-options:
+      env:
+        CFLAGS: -O2 -g0
+        CXXFLAGS: -O2 -g0
+    config-opts:
+      - -DPORT=GTK
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DENABLE_DOCUMENTATION=OFF
+      - -DENABLE_GAMEPAD=OFF
+      - -DENABLE_GEOLOCATION=OFF
+      - -DENABLE_INTROSPECTION=OFF
+      - -DENABLE_JOURNALD_LOG=OFF
+      - -DENABLE_MINIBROWSER=OFF
+      - -DENABLE_SPELLCHECK=OFF
+      - -DENABLE_SPEECH_SYNTHESIS=OFF
+      - -DENABLE_BUBBLEWRAP_SANDBOX=OFF
+      - -DENABLE_MEDIA_STREAM=OFF
+      - -DENABLE_VIDEO=OFF
+      - -DENABLE_WEB_AUDIO=OFF
+      - -DENABLE_WEB_CODECS=OFF
+      - -DENABLE_WEB_RTC=OFF
+      - -DENABLE_WEBGL=OFF
+      - -DUSE_GTK4=OFF
+      - -DUSE_LIBBACKTRACE=OFF
+      - -DUSE_LIBHYPHEN=OFF
+      - -DUSE_GSTREAMER=OFF
+      - -DUSE_SOUP2=OFF
+      - -DUSE_SYSTEM_SYSPROF_CAPTURE=OFF
+    sources:
+      - type: archive
+        url: https://webkitgtk.org/releases/webkitgtk-2.52.4.tar.xz
+        sha256: cf4076a1ca2a64788edca8c452d8ebb68d5e2965e588fe46a388a016513edce4
+      # Reduced-media builds use EventLoopTaskGroup directly from DocumentLoader.
+      - type: patch
+        path: webkitgtk-document-loader-event-loop.patch
+
+  # Ayatana is needed by the linked tray implementation and is not part of the
+  # Freedesktop runtime. This module is derived from Flathub shared-modules.
+  - libayatana-appindicator-gtk3.json
+
+  - name: woc-player-count
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 woc-widget /app/bin/woc-widget
+      - install -Dm644 io.github.fernandox7.wocplayercount.desktop /app/share/applications/io.github.fernandox7.wocplayercount.desktop
+      - install -Dm644 io.github.fernandox7.wocplayercount.metainfo.xml /app/share/metainfo/io.github.fernandox7.wocplayercount.metainfo.xml
+      - cp -a hicolor /app/share/icons/
+    sources:
+      - type: file
+        path: ../../target/release/woc-widget
+      - type: file
+        path: ../linux/io.github.fernandox7.wocplayercount.desktop
+      - type: file
+        path: ../linux/io.github.fernandox7.wocplayercount.metainfo.xml
+      - type: dir
+        path: ../linux/icons/hicolor
+        dest: hicolor

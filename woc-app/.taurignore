@@ -1,0 +1,6 @@
+# Keep the Rust dev watcher from rebuild-looping on frontend churn (Phase 1 QA
+# found 7 spurious rebuilds in one session). Ignore only the churn sources: a
+# blanket ui/ also hides ui/package.json from the CLI's frontend discovery and
+# breaks beforeDevCommand (runs npm at the repo root).
+ui/node_modules/
+ui/dist/

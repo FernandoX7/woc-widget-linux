@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=WoC Player Count
+Comment=Live World of ClaudeCraft player count and $WOC price
+Type=Application
+Icon=io.github.fernandox7.wocplayercount-symbolic
+Exec=woc-cosmic-applet
+Terminal=false
+StartupNotify=true
+Categories=COSMIC;Utility;
+Keywords=COSMIC;WoC;World of ClaudeCraft;Player Count;
+NoDisplay=true
+X-CosmicApplet=true
+X-HostWaylandDisplay=true
+X-CosmicHoverPopup=Auto
