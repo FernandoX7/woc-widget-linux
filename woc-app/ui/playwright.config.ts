@@ -7,6 +7,7 @@ export default defineConfig({
     baseURL: 'http://127.0.0.1:4173',
     viewport: { width: 440, height: 660 },
     deviceScaleFactor: 1,
+    timezoneId: 'America/Chicago',
     launchOptions: { args: ['--disable-gpu'] },
   },
   webServer: {
