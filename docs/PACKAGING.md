@@ -1,12 +1,12 @@
 # Packaging status
 
-No package is currently distributed through GitHub Releases, Flathub, a Debian repository, or an
-automatic updater.
+Beta Debian and AppImage packages are distributed through GitHub Releases. There is no Flathub
+listing, Debian repository, or automatic updater.
 
 | Format | Repository support | Verification | Publication status |
 | --- | --- | --- | --- |
-| Debian | Tauri bundle config, desktop file, AppStream metadata, hicolor icons | Built and structurally inspected locally; privileged install/upgrade/remove deferred | Not published |
-| AppImage | Tauri bundle config and desktop assets | Built and inspected locally; clean-host runtime deferred | Not published |
+| Debian | Tauri bundle config, desktop file, AppStream metadata, hicolor icons | Automated build and structural checks; broader clean-host lifecycle testing ongoing | Beta on GitHub Releases |
+| AppImage | Tauri bundle config and desktop assets | Automated build and structural checks; broader clean-host runtime testing ongoing | Beta on GitHub Releases |
 | Flatpak | Local builder manifest, SNI and notification D-Bus permissions | Local build completed previously; manifest consumes a host binary | Not Flathub-ready or published |
 | COSMIC applet `.deb` | Separate packaging script and control file | Package contents/lifecycle tested without privileged install; installation deferred | Not published |
 
@@ -21,6 +21,6 @@ and D-Bus access to `org.kde.StatusNotifierWatcher` and `org.freedesktop.Notific
 SNI portal. A future Flathub manifest must declare reproducible Cargo/npm sources instead of
 copying `target/release/woc-widget`.
 
-Before a first release, verify each artifact on a clean supported distribution, inspect package
-contents and dependencies, exercise install/upgrade/uninstall and autostart, and publish checksums.
-Do not call the existing local artifacts official releases.
+The tag-driven release workflow builds both public artifacts and publishes SHA-256 checksums.
+Before promoting a beta to stable, verify each artifact on clean supported distributions and
+exercise install, upgrade, uninstall, autostart, tray activation, and notifications.

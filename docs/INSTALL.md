@@ -1,7 +1,21 @@
 # Installation
 
-Prebuilt downloads are not published yet. The supported public path is building from source; the
-packaging recipes below are for maintainers and testers until release artifacts are produced.
+Beta Debian and AppImage packages are published on
+[GitHub Releases](https://github.com/FernandoX7/woc-widget-linux/releases). They currently target
+Ubuntu and Pop!_OS; behavior on other Linux desktops is best effort while testing continues.
+
+## Install a beta package
+
+Download both the package and `SHA256SUMS` from the release page, then verify the download from its
+directory:
+
+```sh
+sha256sum --check SHA256SUMS --ignore-missing
+```
+
+Install the Debian package with `sudo apt install ./<downloaded-package>.deb`. For the AppImage,
+run `chmod +x <downloaded-file>.AppImage` and then launch it. The Debian package is the preferred
+choice on Ubuntu and Pop!_OS because the package manager handles its runtime dependencies.
 
 ## Build and run from source
 
@@ -39,8 +53,7 @@ ui/node_modules/.bin/tauri build --bundles deb,appimage
 
 Inspect the generated names beneath `target/release/bundle/`. Install a locally built Debian
 package with `sudo apt install ./path/to/package.deb`, or mark the AppImage executable and run it.
-These artifacts have been built and structurally inspected on the development host, but clean-VM
-installation, upgrade, and uninstall remain unverified. They are not official downloads.
+Locally built artifacts are unsupported; use the checksummed GitHub Release assets when possible.
 
 Before uninstalling or moving an AppImage, disable **Launch at login**. Package removal preserves
 settings and history. Remove Debian packages with `sudo apt remove <installed-package-name>` and

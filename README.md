@@ -14,10 +14,10 @@ applet or the cross-desktop StatusNotifierItem tray application.
 > of ClaudeCraft, Dream Home AI Limited, or Levy Street. It never asks for game credentials or a
 > wallet connection.
 
-> **Source-first distribution.** This repository does not currently publish prebuilt downloads.
-> Debian, AppImage, and local Flatpak packaging exist, but remain maintainer-built artifacts until
-> the first GitHub release. `$WOC` information is informational, may be delayed or incorrect, and
-> is not financial advice.
+> **Beta distribution.** Debian and AppImage downloads are available from
+> [GitHub Releases](https://github.com/FernandoX7/woc-widget-linux/releases). The first packages
+> target Ubuntu and Pop!_OS; other desktops remain best effort. `$WOC` information is
+> informational, may be delayed or incorrect, and is not financial advice.
 
 ![WoC Player Count Linux dashboard showing the live player count and $WOC candlestick chart](docs/screenshots/woc-dashboard-linux.png)
 
@@ -58,7 +58,9 @@ window. See [COSMIC integration](docs/COSMIC.md) and the [packaging matrix](docs
 
 ## Installation
 
-No downloads have been published yet. Build from source for the currently supported path:
+Download the Debian package or AppImage from
+[GitHub Releases](https://github.com/FernandoX7/woc-widget-linux/releases). These are beta packages;
+building from source remains available for developers:
 
 ```sh
 sudo apt install build-essential curl libwebkit2gtk-4.1-dev \
@@ -71,10 +73,9 @@ cd ..
 ui/node_modules/.bin/tauri dev
 ```
 
-The detailed [installation guide](docs/INSTALL.md) covers source builds, maintainer-built `.deb`,
-AppImage and Flatpak artifacts, the separate COSMIC applet package, uninstalling, and preserving
-or deleting data. Packaging support is present, but installation across the desktop matrix and
-release delivery are not yet fully verified.
+The detailed [installation guide](docs/INSTALL.md) covers release verification, source builds,
+local Flatpak packaging, the separate unreleased COSMIC applet package, uninstalling, and
+preserving or deleting data.
 
 ## Dashboard
 
@@ -138,8 +139,8 @@ See [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) for prerequisites and production 
 - Market and community services are best effort; cached data stays explicitly labeled.
 - Panel labels, click activation, and notification actions differ between desktops.
 - Only local COSMIC behavior is currently live-verified. Other desktop rows remain expectations.
-- Packaging recipes exist, but no public binaries, Flathub listing, updater, or verified clean-VM
-  install matrix exists yet.
+- Beta Debian and AppImage packages are public, but there is no Flathub listing, updater, or
+  verified cross-desktop clean-VM matrix yet.
 
 ## Contributing, security, and license
 

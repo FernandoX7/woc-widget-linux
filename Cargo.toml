@@ -6,7 +6,7 @@ members = ["wockit", "woc-app", "woc-cosmic-applet"]
 libappindicator = { path = "vendor/libappindicator" }
 
 [workspace.package]
-version = "0.1.0"
+version = "0.1.0-beta.1"
 edition = "2021"
 license = "MIT"
 repository = "https://github.com/FernandoX7/woc-widget-linux"
