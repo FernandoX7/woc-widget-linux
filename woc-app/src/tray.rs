@@ -318,10 +318,17 @@ mod tests {
     fn symbolic_tray_asset_is_a_panel_sized_rgba_icon() {
         let icon = symbolic_tray_icon().expect("embedded symbolic tray icon should decode");
         assert_eq!((icon.width(), icon.height()), (32, 32));
-        assert!(icon.rgba().chunks_exact(4).any(|pixel| pixel[3] > 0));
         assert!(icon
             .rgba()
-            .chunks_exact(4)
+            .as_chunks::<4>()
+            .0
+            .iter()
+            .any(|pixel| pixel[3] > 0));
+        assert!(icon
+            .rgba()
+            .as_chunks::<4>()
+            .0
+            .iter()
             .filter(|pixel| pixel[3] > 0)
             .all(|pixel| pixel[..3] == [255, 255, 255]));
     }
