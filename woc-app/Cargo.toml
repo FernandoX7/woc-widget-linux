@@ -24,7 +24,7 @@ wockit = { path = "../wockit" }
 tokio = { version = "1.52.3", features = ["macros", "rt-multi-thread", "sync", "time", "test-util"] }
 # Already in the tree via tauri/gtk; direct dep only to set the GLib application name,
 # which libayatana surfaces as the SNI Title (otherwise it shows the binary name).
-glib = "0.18"
+glib = "0.22"
 serde = { version = "1.0.228", features = ["derive"] }
 serde_json = "1.0.149"
 chrono = { version = "0.4", default-features = false, features = ["clock"] }
