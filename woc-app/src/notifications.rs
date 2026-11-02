@@ -152,7 +152,7 @@ impl<B: NotificationBackend> NotificationDispatcher<B> {
     ) -> Result<u32, String> {
         let id = self
             .next_id
-            .fetch_update(Ordering::Relaxed, Ordering::Relaxed, |current| {
+            .try_update(Ordering::Relaxed, Ordering::Relaxed, |current| {
                 Some(if current == u32::MAX { 1 } else { current + 1 })
             })
             .unwrap_or(1)
